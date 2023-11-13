@@ -1,0 +1,170 @@
+@import 'src/uikit/Theme/theme.module.scss';
+
+$_textColorsMap: (
+    textPrimary: $textPrimary,
+    textOnDarkPrimary: $textOnDarkPrimary,
+    textSecondary: $textSecondary,
+    textDisabled: $textDisabled,
+    textAccent2: $textAccent2,
+    textOnPrimary: $textOnPrimary,
+    textOnSecondary: $textOnSecondary,
+    textOnGhost: $textOnGhost,
+    textOnTertiary: $textOnTertiary,
+    textOnDark: $textOnDark,
+    textError: $textError,
+    textUnknown: $unknownColor,
+    textStatusNeutralOnColor: rgba(4, 97, 125, 1),
+    textStatusSuccessOnColor: rgba(1, 125, 65, 1),
+    textStatusCriticalOnColor: rgba(201, 27, 27, 1),
+    textStatusWarningOnColor: rgba(176, 76, 0, 1),
+    textStatusNeutral: rgba(71, 182, 217, 1),
+    textStatusSuccess: rgba(34, 204, 122, 1),
+    textStatusCritical: rgba(201, 27, 27, 1),
+    textStatusWarning: rgba(241, 157, 57, 1),
+);
+
+$textColors: map-keys($_textColorsMap);
+@mixin applyTextColor($colorKey) {
+    @if map-has-key($_textColorsMap, $colorKey) {
+        color: map-get($_textColorsMap, $colorKey);
+    } @else {
+        @error "ERROR: Specified color #{$colorKey} is not allowed for text";
+    }
+}
+
+$_textAlignMap: (
+    'left': left,
+    'center': center,
+);
+$textAligns: map-keys($_textAlignMap);
+@mixin applyTextAlign($alignKey) {
+    @if map-has-key($_textAlignMap, $alignKey) {
+        text-align: map-get($_textAlignMap, $alignKey);
+    } @else {
+        @error "ERROR: Specified textAlign #{$alignKey} is not allowed for text";
+    }
+}
+
+$_textWeightsMap: (
+    'inherit': inherit,
+    'regular': 400,
+    'medium': 500,
+    'semi_bold': 600,
+    'bold': 700,
+);
+$textWeights: map-keys($_textWeightsMap);
+@mixin applyTextWeight($weightKey) {
+    @if map-has-key($_textWeightsMap, $weightKey) {
+        font-weight: map-get($_textWeightsMap, $weightKey);
+    } @else {
+        @error "ERROR: Specified weight #{$weightKey} is not allowed for text";
+    }
+}
+
+$_textWhitespaceMap: (
+    'normal': normal,
+    'nowrap': nowrap,
+    'pre-wrap': pre-wrap,
+);
+$textWhitespaces: map-keys($_textWhitespaceMap);
+@mixin applyTextWhitespace($whitespaceKey) {
+    @if map-has-key($_textWhitespaceMap, $whitespaceKey) {
+        white-space: map-get($_textWhitespaceMap, $whitespaceKey);
+    } @else {
+        @error "ERROR: Specified whitespace #{$whitespaceKey} is not allowed for text";
+    }
+}
+
+$_textTypographiesMap: (
+    inherit: 'inherit',
+    large: 'large',
+    title1: 'title1',
+    title2: 'title2',
+    title3: 'title3',
+    headline: 'headline',
+    paragraph: 'paragraph',
+    callout: 'callout',
+    footnote: 'footnote',
+    caption1: 'caption1',
+    caption2: 'caption2',
+);
+$textTypographies: map-keys($_textTypographiesMap);
+@mixin applyTextTypography($typographyKey) {
+    @if not map-has-key($_textTypographiesMap, $typographyKey) {
+        @error "ERROR: Specified typography #{$typographyKey} is not allowed for text";
+    }
+
+    @if ($typographyKey == 'inherit') {
+        font-size: inherit;
+        line-height: inherit;
+        letter-spacing: inherit;
+    } @else if ($typographyKey == 'large') {
+        font-size: 34px;
+        line-height: 42px;
+        letter-spacing: 0.004em;
+    } @else if ($typographyKey == 'title1') {
+        font-size: 28px;
+        line-height: 35px;
+        letter-spacing: 0.0038em;
+    } @else if ($typographyKey == 'title2') {
+        font-size: 22px;
+        line-height: 28px;
+        letter-spacing: -0.0026em;
+    } @else if ($typographyKey == 'title3') {
+        font-size: 20px;
+        line-height: 25px;
+        letter-spacing: -0.0045em;
+    } @else if ($typographyKey == 'headline') {
+        font-size: 17px;
+        line-height: 22px;
+        letter-spacing: -0.0043em;
+    } @else if ($typographyKey == 'paragraph') {
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: -0.0043em;
+    } @else if ($typographyKey == 'callout') {
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: -0.0031em;
+    } @else if ($typographyKey == 'footnote') {
+        font-size: 13px;
+        line-height: 16px;
+        letter-spacing: -0.0008em;
+    } @else if ($typographyKey == 'caption1') {
+        font-size: 12px;
+        line-height: 15px;
+        align-items: center;
+    } @else if ($typographyKey == 'caption2') {
+        font-size: 11px;
+        line-height: 14px;
+        letter-spacing: 0.0006em;
+    } @else {
+        @error 'ERROR: No implementation for typography #{$typographyKey}';
+    }
+}
+
+@mixin applyTextBase {
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 0;
+}
+
+@mixin applyEllipsis {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+}
+
+@mixin applyBreakWord {
+    word-wrap: break-word;
+}
+
+@mixin applyText($typography, $weight, $color) {
+    @include applyTextBase();
+
+    @include applyTextColor($color);
+    @include applyTextWeight($weight);
+    @include applyTextTypography($typography);
+}

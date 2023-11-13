@@ -1,0 +1,38 @@
+{
+    "expo": {
+        "name": "Zeal",
+        "slug": "zeal",
+        "version": "1.0.3",
+        "orientation": "portrait",
+        "icon": "./assets/icon.png",
+        "userInterfaceStyle": "light",
+        "splash": {
+            "image": "./assets/splash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#ffffff"
+        },
+        "assetBundlePatterns": ["**/*"],
+        "ios": {
+            "supportsTablet": true,
+            "bundleIdentifier": "com.masm.zeal",
+            "buildNumber": "3"
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/icon.png",
+                "backgroundColor": "#ffffff"
+            },
+            "package": "com.masm.zeal",
+            "versionCode": 3
+        },
+        "web": {
+            "favicon": "./assets/favicon.png"
+        },
+        "extra": {
+            "eas": {
+                "projectId": "f1fcae52-18f0-42a1-8e60-9c4b94455d44"
+            }
+        },
+        "plugins": ["expo-localization"]
+    }
+}

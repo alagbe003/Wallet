@@ -1,0 +1,10 @@
+@import 'src/uikit/Theme/theme.module.scss';
+@import 'src/uikit/Row2/Row2.scss';
+
+
+.LeftRow {
+    @include applyRow(12);
+    flex: 1; 
+    min-width: 50%;
+}
+

@@ -1,0 +1,17 @@
+@import 'src/uikit/Theme/theme.module.scss';
+
+.SkeletonContainer {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    min-height: 0;
+    min-width: 0;
+    overflow: hidden;
+    position: relative;
+    background-color: $surfaceDefault;
+    border-radius: 12;
+    padding: 8px;
+}

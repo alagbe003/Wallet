@@ -1,0 +1,27 @@
+{
+  "name": "@zeal/domains",
+  "version": "0.0.1",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "build/index",
+  "types": "build/index",
+  "files": [
+    "build"
+  ],
+  "devDependencies": {
+    "@zeal/eslint-config": "workspace:*",
+    "eslint": "8.3.0",
+    "typescript": "5.0.2"
+  },
+  "scripts": {
+    "start": "tsc -p tsconfig.build.json --watch",
+    "build": "tsc -p tsconfig.build.json",
+    "install": "yarn build",
+    "lint": "yarn eslint  --max-warnings 0 ."
+  },
+  "dependencies": {
+    "@zeal/api": "workspace:^",
+    "@zeal/toolkit": "workspace:^",
+    "react-intl": "6.2.10"
+  }
+}

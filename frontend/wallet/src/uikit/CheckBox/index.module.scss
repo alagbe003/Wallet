@@ -1,0 +1,43 @@
+@import 'src/uikit/Row2/Row2.scss';
+@import 'src/uikit/Theme/theme.module.scss';
+@import 'src/uikit/Text2/Text2';
+
+.container {
+  @include applyRow(0);
+  border-radius: 5px;
+
+  min-height: 40px;
+  padding: 8px 12px;
+
+  background-color: $actionSecondaryDefault;
+  cursor: pointer;
+
+
+  &:hover {
+    background-color: $actionSecondaryHovered;
+  }
+
+  &:active {
+    background-color: $actionSecondaryPressed;
+  }
+}
+
+.title {
+  @include applyRow(12);
+  @include applyTextWeight('regular');
+  @include applyTextColor('textPrimary');
+  @include applyTextTypography('paragraph');
+
+}
+
+.disabled {
+  background-color: $actionSecondaryDisabled;
+  cursor: not-allowed;
+
+  .title {
+    @include applyTextColor('textDisabled');
+  }
+
+}
+
+

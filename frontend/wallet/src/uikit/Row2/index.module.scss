@@ -1,0 +1,27 @@
+@import './Row2.scss';
+
+@each $spacing in $rowSpacings {
+    .space#{$spacing} {
+        @include applyRow($spacing);
+    }
+
+    .wrapSpace#{$spacing} {
+        @include wrapSpacing($spacing);
+    }
+}
+
+@each $align in $rowXAligns {
+    .XAlign_#{$align} {
+        @include rowXAlign($align);
+    }
+}
+
+@each $align in $rowYAligns {
+    .YAlign_#{$align} {
+        @include rowYAlign($align);
+    }
+}
+
+.wrap {
+    @include rowWrap();
+}

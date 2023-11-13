@@ -1,0 +1,16 @@
+.Clickable {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    min-height: 0;
+    min-width: 0;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+}

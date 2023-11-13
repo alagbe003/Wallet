@@ -1,0 +1,40 @@
+@import 'src/uikit/Theme/theme.module.scss';
+
+
+
+.container {
+    padding: 8px;
+    border-radius: 5px;
+
+    &.container_default {
+        &[aria-selected='true'] {
+            background-color: $backgroundLight;
+        }
+    }
+
+    &.container_solid {
+       background-color: $backgroundLight
+    }
+    
+    &.container_warning {
+        background-color: $backgroundAlertWarning
+    }
+
+    &.container_critical {
+        background-color: $backgroundAlertCritical
+    }
+}
+
+.clickable {
+    cursor: pointer;
+    transition: 0.3s ease;
+    background-color: $actionSecondaryDefault;
+
+    &:hover {
+        background-color: $actionSecondaryHovered;
+    }
+
+    &:active {
+        background-color: $actionSecondaryPressed;
+    }
+}

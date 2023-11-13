@@ -1,0 +1,101 @@
+@import 'src/uikit/Theme/theme.module.scss';
+@import 'src/uikit/Text2/Text2.scss';
+@import 'src/uikit/Row2/Row2.scss';
+
+.Button {
+    @include applyRow(6);
+    @include rowXAlign('center');
+    @include rowYAlign('center');
+
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid transparent;
+
+    cursor: pointer;
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
+
+.Size_compressed {
+    height: 40px;
+    padding: 12px;
+    @include applyTextTypography('paragraph');
+    @include applyTextWeight('medium');
+}
+
+.Size_regular {
+    height: 42px;
+    padding: 12px 18px;
+    @include applyTextTypography('paragraph');
+    @include applyTextWeight('medium');
+}
+
+.Size_small {
+    height: 31px;
+    padding: 8px 12px;
+    @include applyTextTypography('caption1');
+    @include applyTextWeight('medium');
+}
+
+.Variant_tertiary {
+    color: $textSecondary;
+
+    :hover {
+        color: $textPrimary;
+    }
+
+    :active {
+        color: $actionPrimaryPressed;
+    }
+
+    :disabled {
+        color: $textDisabled;
+    }
+}
+
+.Variant_secondary {
+    border-color: $borderDefault;
+
+    color: $textPrimary;
+    background-color: $actionSecondaryDefault;
+
+    &:hover {
+        border-color: $actionSecondaryHovered;
+        color: $textPrimary;
+        background-color: $actionSecondaryHovered;
+    }
+
+    &:active {
+        border-color: $actionSecondaryPressed;
+        color: $textPrimary;
+        background-color: $actionSecondaryPressed;
+    }
+
+    &:disabled {
+        border-color: $actionSecondaryDisabled;
+        color: $textDisabled;
+        background-color: $actionSecondaryDisabled;
+    }
+}
+
+.Variant_primary {
+    color: $textOnPrimary;
+    background-color: $actionPrimaryDefault;
+
+    &:hover {
+        color: $textOnPrimary;
+        background-color: $actionPrimaryHovered;
+    }
+
+    &:active {
+        color: $textOnPrimary;
+        background-color: $actionPrimaryPressed;
+    }
+
+    &:disabled {
+        color: $textDisabled;
+        background-color: $actionPrimaryDisabled;
+    }
+}

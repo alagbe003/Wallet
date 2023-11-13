@@ -1,0 +1,11 @@
+{
+    "extends": "expo/tsconfig.base",
+    "compilerOptions": {
+        "strict": true,
+        "paths": {
+            "react": ["./node_modules/@types/react"], // HACK: this should not be necessary, but: https://remarkablemark.org/blog/2023/06/30/react-types-reactnode-error/
+            "@zeal/*": ["../*"],
+            "src/*": ["./src/*"]
+        }
+    }
+}

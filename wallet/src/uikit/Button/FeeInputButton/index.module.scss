@@ -1,0 +1,24 @@
+@import 'src/uikit/Row2/Row2.scss';
+@import 'src/uikit/Theme/theme.module.scss';
+
+.Button {
+    background: $surfaceDefault;
+    padding: 10px 12px;
+    border: 1px solid $surfaceDefault;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    &Error {
+        border-color: $borderError;
+    }
+
+    &Disabled {
+        cursor: default;
+    }
+}
+
+.SideIcon {
+    @include applyRow(0);
+    padding-right: 4px;
+}

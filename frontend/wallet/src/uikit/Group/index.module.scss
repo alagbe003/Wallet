@@ -1,0 +1,27 @@
+@import 'src/uikit/Theme/theme.module.scss';
+@import 'src/uikit/Column2/Column2.scss';
+@import 'src/uikit/Row2/Row2.scss';
+@import 'src/uikit/Text2/Text2';
+
+
+.Group {
+    width: 100%;
+    border-radius: 8px;
+    background-color: $surfaceDefault;
+    flex: 0 1 auto;
+}
+
+.Group_variant_compressed {
+    padding: 0;
+    @include applyColumn(0);
+}
+
+.Group_variant_default {
+    padding: 8px;
+    @include applyColumn(8);
+}
+
+.Section {
+    flex: 1 1 auto;
+    @include applyColumn(8);
+}

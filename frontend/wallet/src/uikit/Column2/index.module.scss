@@ -1,0 +1,13 @@
+@import './Column2.scss';
+
+@each $spacing in $columnSpacings {
+    .space#{$spacing} {
+        @include applyColumn($spacing);
+    }
+}
+
+@each $align in $columnXAligns {
+    .XAlign_#{$align} {
+        @include columnXAlign($align);
+    }
+}

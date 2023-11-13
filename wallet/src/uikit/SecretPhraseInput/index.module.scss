@@ -1,0 +1,56 @@
+@import 'src/uikit/Theme/theme.module.scss';
+@import 'src/uikit/Text2/Text2';
+
+.Container {
+    background: $surfaceDefault;
+    border: 1px solid $borderSecondary;
+    border-radius: 4px;
+    overflow-y: auto;
+    max-height: 228px;
+    padding: 4px;
+}
+
+.TextNode {
+    display: inline-flex;
+
+    border: 1px solid transparent;
+
+    padding: 8px 12px;
+    margin: 5px;
+
+    @include applyText('paragraph', 'regular', 'textPrimary');
+
+    &.LastText {
+        &::before {
+            content: ' ';
+        }
+    }
+
+    &.EmptyText:not(.LastText) {
+        padding: 0;
+        margin: 0;
+        border: 0;
+    }
+}
+
+.Word {
+    display: inline-flex;
+
+    border: 1px solid $borderDefault;
+    border-radius: 50px;
+
+    padding: 8px 12px;
+    margin: 5px;
+
+    @include applyText('paragraph', 'regular', 'textSecondary');
+
+    &.Errored {
+        @include applyText('paragraph', 'regular', 'textError');
+        border: 1px solid $borderError;
+    }
+
+    &.Selected {
+        @include applyText('paragraph', 'regular', 'textPrimary');
+        border: 1px solid $borderFocus;
+    }
+}

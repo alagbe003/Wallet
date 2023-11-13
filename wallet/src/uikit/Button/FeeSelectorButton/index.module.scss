@@ -1,0 +1,111 @@
+@import 'src/uikit/Theme/theme.module.scss';
+@import 'src/uikit/Text2/Text2.scss';
+
+.Skeleton {
+    display: flex;
+    background: transparent;
+    padding: 8px;
+    border: 1px solid $borderDefault;
+    border-radius: 4px;
+    height: 88px;
+    width: 96px;
+    outline: none;
+    user-select: none;
+    cursor: not-allowed;
+}
+
+.Spacer {
+    flex: 1 1 0;
+    min-height: 12px;
+}
+
+.FeeSelectorButton {
+    display: flex;
+    background: transparent;
+    padding: 8px;
+    border: 1px solid $borderDefault;
+    border-radius: 4px;
+    height: 88px;
+    width: 96px;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+
+    .Title {
+        @include applyText('paragraph', 'medium', 'textSecondary');
+    }
+
+    .Amount {
+        @include applyText('paragraph', 'medium', 'textPrimary');
+    }
+
+    .Time {
+        @include applyText('paragraph', 'medium', 'textSecondary');
+    }
+
+    .Icon {
+        color: $iconDisabled;
+    }
+
+    &,
+    .Time,
+    .Title,
+    .Icon,
+    .Amount {
+        transition: 0.2s;
+    }
+
+    &:hover {
+        border-color: $actionPrimaryHovered;
+        .Icon,
+        .Time,
+        .Title,
+        .Amount {
+            color: $actionPrimaryHovered;
+        }
+    }
+
+    &:active {
+        border-color: $actionPrimaryPressed;
+
+        .Icon {
+            color: $iconDisabled;
+        }
+
+        .Amount {
+            color: $textPrimary;
+        }
+
+        .Time,
+        .Title {
+            color: $textSecondary;
+        }
+    }
+
+    &Error {
+        border-color: $borderError;
+    }
+
+    &Selected {
+        border-color: $actionGhostDefault;
+        background-color: $surfaceGhost;
+    }
+
+    &Disabled,
+    &Disabled:hover,
+    &Disabled:active {
+        background-color: $actionSecondaryDisabled;
+        border-color: transparent;
+        cursor: not-allowed;
+
+        .Icon {
+            color: $iconDisabled;
+        }
+
+        .Amount,
+        .Time,
+        .Title {
+            color: $textDisabled;
+        }
+    }
+}

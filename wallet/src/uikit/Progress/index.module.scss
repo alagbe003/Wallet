@@ -1,0 +1,123 @@
+@import 'src/uikit/Theme/theme.module.scss';
+@import 'src/uikit/Row2/Row2.scss';
+@import 'src/uikit/Text2/Text2.scss';
+
+.Progress {
+    background-color: $surfaceDefault;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    padding: 10px 12px;
+
+    .ProgressBar {
+        transition: width 0.7s;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .Subtitle {
+        @include applyText('paragraph', 'regular', 'textPrimary');
+    }
+
+    &.rounded {
+        border-radius: 8px;
+    }
+
+    &.clickable {
+        cursor: pointer;
+    }
+
+    &.neutral {
+        .ProgressBar {
+            background-color: $backgroundAlertNeutral;
+        }
+
+        .Title,
+        .Right {
+            @include applyText(
+                'paragraph',
+                'regular',
+                'textStatusNeutralOnColor'
+            );
+        }
+
+        &.clickable:hover .ProgressBar {
+            background-color: $backgroundAlertNeutralHover;
+        }
+
+        &.clickable:active .ProgressBar {
+            background-color: $backgroundAlertNeutralClicked;
+        }
+    }
+
+    &.warning {
+        .ProgressBar {
+            background-color: $backgroundAlertWarning;
+        }
+
+        .Title,
+        .Right {
+            @include applyText(
+                'paragraph',
+                'regular',
+                'textStatusWarningOnColor'
+            );
+        }
+
+        &.clickable:hover .ProgressBar {
+            background-color: $backgroundAlertWarningHover;
+        }
+
+        &.clickable:active .ProgressBar {
+            background-color: $backgroundAlertWarningClicked;
+        }
+    }
+
+    &.critical {
+        .ProgressBar {
+            background-color: $backgroundAlertCritical;
+        }
+
+        .Title,
+        .Right {
+            @include applyText(
+                'paragraph',
+                'regular',
+                'textStatusCriticalOnColor'
+            );
+        }
+
+        &.clickable:hover .ProgressBar {
+            background-color: $backgroundAlertCriticalHover;
+        }
+
+        &.clickable:active .ProgressBar {
+            background-color: $backgroundAlertCriticalClicked;
+        }
+    }
+
+    &.success {
+        .ProgressBar {
+            background-color: $backgroundAlertSuccess;
+        }
+
+        .Title,
+        .Right {
+            @include applyText(
+                'paragraph',
+                'regular',
+                'textStatusSuccessOnColor'
+            );
+        }
+
+        &.clickable:hover .ProgressBar {
+            background-color: $backgroundAlertSuccessHover;
+        }
+
+        &.clickable:active .ProgressBar {
+            background-color: $backgroundAlertSuccessClicked;
+        }
+    }
+}

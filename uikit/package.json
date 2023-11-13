@@ -1,0 +1,36 @@
+{
+  "name": "@zeal/uikit",
+  "version": "0.0.1",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "build/index",
+  "types": "build/index",
+  "scripts": {
+    "build": "yarn run clean && yarn run compile",
+    "start": "tsc -p tsconfig.build.json --watch",
+    "clean": "rimraf ./build",
+    "compile": "tsc -p tsconfig.build.json",
+    "install": "yarn build",
+    "lint": "yarn eslint  --max-warnings 0 ."
+  },
+  "peerDependencies": {
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-native-web": "0.19.9"
+  },
+  "devDependencies": {
+    "@types/react-native": "0.72.3",
+    "@zeal/eslint-config": "workspace:*",
+    "eslint": "8.3.0",
+    "rimraf": "5.0.0",
+    "typescript": "5.0.2"
+  },
+  "dependencies": {
+    "@zeal/toolkit": "workspace:*",
+    "expo-blur": "12.4.1",
+    "expo-linear-gradient": "~12.3.0",
+    "lottie-react-native": "5.1.6",
+    "react-native-reanimated": "~3.3.0",
+    "react-native-svg": "13.9.0"
+  }
+}

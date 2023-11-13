@@ -1,0 +1,40 @@
+{
+  "name": "@zeal/mobile-expo",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "private",
+  "private": true,
+  "workspaces": [
+    "frontend/api",
+    "frontend/eslint-config",
+    "frontend/eslint-plugin-zeal-domains",
+    "frontend/mobile",
+    "frontend/domains",
+    "frontend/my-app",
+    "frontend/toolkit",
+    "frontend/uikit",
+    "frontend/wallet"
+  ],
+  "scripts": {
+    "start": "run-p start:uikit start:toolkit start:wallet",
+    "start:wallet": "yarn workspace wallet start",
+    "start:toolkit": "yarn workspace @zeal/toolkit start",
+    "start:uikit": "yarn workspace @zeal/uikit start",
+    "test": "yarn workspace wallet test",
+    "test:ci": "yarn workspace wallet test:ci",
+    "lint": "run-p lint:uikit lint:toolkit lint:wallet",
+    "lint:wallet": "yarn workspace wallet lint",
+    "lint:toolkit": "yarn workspace @zeal/toolkit lint",
+    "lint:uikit": "yarn workspace @zeal/uikit lint",
+    "build:dev": "yarn workspace wallet build:api && yarn workspace wallet tsc && yarn workspace wallet build:dev",
+    "build:prod": "yarn workspace wallet build:api && yarn workspace wallet tsc && yarn workspace wallet build:prod",
+    "compress:dev": "yarn workspace wallet compress:dev",
+    "compress:prod": "yarn workspace wallet compress:prod",
+    "inject-sourcemaps-debug-id": "yarn workspace wallet inject-sourcemaps-debug-id",
+    "release": "yarn workspace wallet release"
+  },
+  "packageManager": "yarn@3.6.4",
+  "devDependencies": {
+    "npm-run-all": "4.1.5"
+  }
+}

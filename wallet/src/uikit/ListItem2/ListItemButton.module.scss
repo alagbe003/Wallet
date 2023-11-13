@@ -1,0 +1,19 @@
+@import 'src/uikit/Theme/theme.module.scss';
+
+
+.container {
+    cursor: pointer;
+    border: 1px solid $borderDefault;
+    border-radius: 8px;
+
+    padding: 8px 10px;
+
+    &:hover {
+        border-color: $iconHover;
+    }
+    &:active {
+        border-color: $borderSecondary;
+    }
+}
+
+

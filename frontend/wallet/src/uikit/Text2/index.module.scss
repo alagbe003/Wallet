@@ -1,0 +1,43 @@
+@import './Text2.scss';
+
+.Text {
+    @include applyTextBase();
+
+    &.Ellipsis {
+        @include applyEllipsis();
+    }
+
+    &.BreakWord {
+        @include applyBreakWord();
+    }
+
+    @each $align in $textAligns {
+        &.Align_#{$align} {
+            @include applyTextAlign($align);
+        }
+    }
+
+    @each $color in $textColors {
+        &.Color_#{$color} {
+            @include applyTextColor($color);
+        }
+    }
+
+    @each $weight in $textWeights {
+        &.Weight_#{$weight} {
+            @include applyTextWeight($weight);
+        }
+    }
+
+    @each $typography in $textTypographies {
+        &.Typograhy_#{$typography} {
+            @include applyTextTypography($typography);
+        }
+    }
+
+    @each $whitespace in $textWhitespaces {
+        &.Whitespace_#{$whitespace} {
+            @include applyTextWhitespace($whitespace);
+        }
+    }
+}

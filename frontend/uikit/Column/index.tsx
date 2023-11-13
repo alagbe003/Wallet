@@ -1,0 +1,63 @@
+import React from 'react'
+import { StyleSheet, View } from 'react-native'
+
+export type Spacing = 0 | 2 | 3 | 4 | 6 | 8 | 12 | 16 | 20 | 24 | 30
+
+type AlignX = 'start' | 'center' | 'end'
+type AlignY = 'start' | 'center' | 'end' | 'stretch'
+
+type Props = {
+    spacing: Spacing
+    alignX?: AlignX
+    alignY?: AlignY
+    fillHeight?: number
+    children: React.ReactNode
+    'aria-labelledby'?: string
+    'aria-label'?: string
+    'data-testid'?: string
+}
+
+const styles = StyleSheet.create({
+    column: {
+        width: '100%',
+        flexShrink: 1,
+    },
+    alignX_start: { alignItems: 'flex-start' },
+    alignX_center: { alignItems: 'center' },
+    alignX_end: { alignItems: 'flex-end' },
+    alignY_start: { justifyContent: 'flex-start' },
+    alignY_center: { justifyContent: 'center' },
+    alignY_end: { justifyContent: 'flex-end' },
+    alignY_stretch: {
+        flexGrow: 1,
+        justifyContent: 'space-between',
+    },
+})
+
+export const Column = ({
+    spacing,
+    children,
+    alignX,
+    alignY,
+    fillHeight,
+    'aria-labelledby': ariaLabelledby,
+    'aria-label': ariaLabel,
+    'data-testid': dataTestid,
+}: Props) => {
+    return (
+        <View
+            style={[
+                styles.column,
+                alignX && styles[`alignX_${alignX}`],
+                alignY && styles[`alignY_${alignY}`],
+                { flexGrow: fillHeight },
+                { rowGap: spacing },
+            ]}
+            aria-labelledby={ariaLabelledby}
+            aria-label={ariaLabel}
+            data-testid={dataTestid}
+        >
+            {children}
+        </View>
+    )
+}

@@ -1,0 +1,14 @@
+import {
+    PREDEFINED_NETWORKS,
+    TEST_NETWORKS,
+} from '@zeal/domains/Network/constants'
+import { NetworkMap } from '@zeal/domains/Network'
+
+export const getPredefinedNetworkMap = () => {
+    return [...TEST_NETWORKS, ...PREDEFINED_NETWORKS].reduce((result, item) => {
+        return {
+            ...result,
+            [item.hexChainId]: item,
+        }
+    }, {} as NetworkMap)
+}

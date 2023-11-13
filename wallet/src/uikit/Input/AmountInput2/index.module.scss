@@ -1,0 +1,124 @@
+@import 'src/uikit/Theme/theme.module.scss';
+@import 'src/uikit/Text2/Text2';
+@import 'src/uikit/Column2/Column2.scss';
+@import 'src/uikit/Row2/Row2.scss';
+
+.Container {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    border: 1px solid $surfaceLight;
+    border-radius: 8px;
+    transition: border-color 300ms ease;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    background: $surfaceDefault;
+    overflow: hidden;
+
+    @include applyColumn(0);
+
+    // States
+
+    &.State_normal {
+        border-color: $surfaceLight;
+    }
+
+    // order is matter :: we want error state to overite normal and hover states
+    &:hover {
+        border-color: $borderDefault;
+    }
+
+    &:focus-within {
+        border-color: $borderDefault;
+    }
+
+    &.State_error {
+        border-color: $borderError;
+    }
+
+    .Top {
+        width: 100%;
+    }
+
+    .Content {
+        @include applyColumn(8);
+        padding: 12px;
+        min-height: 75px;
+
+        .TopLeft {
+            flex: 1 0 auto;
+            min-width: 0;
+        }
+
+        .TopRight {
+            @include applyRow(0);
+            flex: 1 1 auto;
+            justify-content: flex-end;
+        }
+
+        .BottomRight {
+            @include applyRow(0);
+            flex: 1 1 auto;
+
+            justify-content: flex-end;
+        }
+
+        .BottomLeft {
+            @include applyRow(0);
+            flex: 1 1 auto;
+        }
+    }
+
+    .Bottom {
+        border-top: 1px solid $surfaceLight;
+        box-sizing: border-box;
+        padding: 6px 12px;
+        width: 100%;
+    }
+}
+
+.HTMLInput {
+    box-sizing: border-box;
+    display: flex;
+    flex: 1;
+    width: 100%;
+    max-width: 100%;
+    appearance: none;
+    font: inherit;
+    border: none;
+    background: none;
+    outline: none;
+    border-radius: 0;
+    padding: 0;
+    text-overflow: ellipsis;
+    text-align: right;
+    height: 24px;
+
+    white-space: nowrap;
+    overflow: hidden;
+
+    color: $textPrimary;
+
+    &[disabled],
+    &:disabled,
+    &[aria-disabled='true'] {
+        -webkit-text-fill-color: currentColor;
+        opacity: 1;
+    }
+
+    &::placeholder {
+        color: $textSecondary;
+    }
+
+    &::-webkit-search-cancel-button {
+        display: none;
+    }
+
+    @include applyTextWeight('medium');
+    @include applyTextTypography('title3');
+
+    &[readonly] {
+        cursor: default;
+    }
+}

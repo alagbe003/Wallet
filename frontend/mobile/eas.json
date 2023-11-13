@@ -1,0 +1,31 @@
+{
+    "cli": {
+        "version": ">= 5.4.0"
+    },
+    "build": {
+        "base": {
+            "node": "20.8.0"
+        },
+        "development": {
+            "extends": "base",
+            "developmentClient": true,
+            "distribution": "internal"
+        },
+        "preview": {
+            "extends": "base",
+            "distribution": "internal"
+        },
+        "production": {
+            "extends": "base"
+        },
+        "apk": {
+            "extends": "production",
+            "android": {
+                "gradleCommand": ":app:assembleRelease"
+            }
+        }
+    },
+    "submit": {
+        "production": {}
+    }
+}

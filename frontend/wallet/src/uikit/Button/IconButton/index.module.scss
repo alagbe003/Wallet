@@ -1,0 +1,36 @@
+@import 'src/uikit/Theme/theme.module.scss';
+
+.Base {
+    background-color: transparent;
+    cursor: pointer;
+    gap: 4px;
+
+    color: $iconDefault;
+
+    display: flex;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    text-decoration: none;
+    font-style: inherit;
+
+    border: none;
+    padding: 0;
+
+    &[aria-pressed='true'] {
+        color: $textAccent2;
+    }
+
+    :hover * {
+        color: $iconHover;
+    }
+
+    :active {
+        color: $iconPressed;
+    }
+
+    :disabled {
+        color: $iconDisabled;
+    }
+}

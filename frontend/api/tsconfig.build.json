@@ -1,0 +1,11 @@
+{
+    "extends": "../../tsconfig.build.json",
+
+    "compilerOptions": {
+        "module": "CommonJS",
+        "outDir": "./build",
+        "types": ["node"]
+    },
+
+    "exclude": ["node_modules", "build"]
+}

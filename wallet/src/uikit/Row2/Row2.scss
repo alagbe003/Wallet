@@ -1,0 +1,65 @@
+$rowSpacings: (0, 2, 3, 4, 6, 8, 12, 16, 20, 24, 30);
+
+@mixin applyRow($spacing) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    min-width: 0;
+    flex-wrap: nowrap;
+
+    & > :not(:first-child):not(:empty) {
+        @if index($rowSpacings, $spacing) {
+            margin-left: #{$spacing}px;
+        } @else {
+            @error "ERROR: Specified spacing #{$spacing} is not allowed for Row";
+        }
+    }
+}
+
+@mixin wrapSpacing($spacing) {
+    @if index($rowSpacings, $spacing) {
+        row-gap: #{$spacing}px;
+    } @else {
+        @error "ERROR: Specified wrapSpacing #{$spacing} is not allowed for Row";
+    }
+}
+
+$_rowXAlignsMap: (
+    'end': flex-end,
+    'start': flex-start,
+    'center': center,
+    'stretch': space-between,
+    'stretchCenter': space-around,
+);
+
+$rowXAligns: map-keys($_rowXAlignsMap);
+
+@mixin rowXAlign($alignKey) {
+    @if index($rowXAligns, $alignKey) {
+        justify-content: map-get($_rowXAlignsMap, $alignKey);
+    } @else {
+        @error "ERROR: Specified xAlign #{$align} is not allowed for Row";
+    }
+}
+
+$_rowYAlignsMap: (
+    'end': flex-end,
+    'start': flex-start,
+    'center': center,
+    'stretch': stretch,
+);
+
+$rowYAligns: map-keys($_rowYAlignsMap);
+
+@mixin rowYAlign($alignKey) {
+    @if index($rowYAligns, $alignKey) {
+        align-items: map-get($_rowYAlignsMap, $alignKey);
+    } @else {
+        @error "ERROR: Specified yAlign #{$align} is not allowed for Row";
+    }
+}
+
+@mixin rowWrap() {
+    flex-wrap: wrap;
+}

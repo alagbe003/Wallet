@@ -1,0 +1,21 @@
+@import 'src/uikit/Column2/Column2.scss';
+@import 'src/uikit/Theme/theme.module.scss';
+
+.container {
+    @include applyColumn(8);
+    background-color: $surfaceDefault;
+    align-items: center;
+    justify-content: center;
+
+    &.Size_large {
+        padding: 65px 16px;
+    }
+
+    &.Size_regular {
+        padding: 16px 16px;
+    }
+
+    &.Clickable {
+        cursor: pointer;
+    }
+}

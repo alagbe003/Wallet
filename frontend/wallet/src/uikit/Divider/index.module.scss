@@ -1,0 +1,15 @@
+@import 'src/uikit/Theme/theme.module.scss';
+
+.base {
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid transparent;
+}
+
+.default {
+    border-bottom: 1px solid transparent;
+}
+
+.secondary {
+    border-bottom: 1px solid $borderSecondary;
+}

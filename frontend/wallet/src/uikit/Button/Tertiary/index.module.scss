@@ -1,0 +1,142 @@
+@import 'src/uikit/Theme/theme.module.scss';
+@import 'src/uikit/Text2/Text2.scss';
+
+.Tertiary {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 0;
+
+    cursor: pointer;
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
+
+.Inline {
+    display: inline-flex;
+}
+
+.Size_xl {
+    @include applyTextTypography('title3');
+    @include applyTextWeight('medium');
+}
+
+.Size_large {
+    @include applyTextTypography('callout');
+    @include applyTextWeight('medium');
+}
+
+.Size_regular {
+    @include applyTextTypography('paragraph');
+    @include applyTextWeight('regular');
+}
+
+.Size_small {
+    @include applyTextTypography('caption1');
+    @include applyTextWeight('regular');
+}
+
+.Color_on_light {
+    color: $textSecondary;
+
+    &:hover {
+        color: $textPrimary;
+    }
+
+    &:active {
+        color: $actionPrimaryPressed;
+    }
+
+    &:disabled {
+        color: $textDisabled;
+    }
+}
+
+.Color_on_dark {
+    color: $darkActionSecondaryDefault;
+
+    &:hover {
+        text-decoration: underline;
+        color: $darkActionSecondaryHover;
+    }
+
+    &:active {
+        text-decoration: underline;
+        color: $darkActionSecondaryPressed;
+    }
+
+    &:disabled {
+        color: $darkActionSecondaryDisabled;
+    }
+}
+
+.Color_critical {
+    color: $textStatusCriticalOnColor;
+
+    &:hover {
+        color: $textStatusCriticalOnColorHover;
+    }
+
+    &:active {
+        color: $textStatusCriticalOnColorPressed;
+    }
+
+    &:disabled {
+        color: $textStatusCriticalOnColorDisabled;
+    }
+}
+
+.Color_success {
+    color: $textStatusSuccessOnColor;
+
+    &:hover {
+        color: $textStatusSuccessOnColorHover;
+    }
+
+    &:active {
+        color: $textStatusSuccessOnColorPressed;
+    }
+
+    &:disabled {
+        color: $textStatusSuccessOnColorDisabled;
+    }
+}
+
+.Color_neutral {
+    color: $textStatusNeutralOnColor;
+
+    &:hover {
+        color: $textStatusNeutralOnColorHover;
+    }
+
+    &:active {
+        color: $textStatusNeutralOnColorPressed;
+    }
+
+    &:disabled {
+        color: $textStatusNeutralOnColorDisabled;
+    }
+}
+
+.Color_warning {
+    color: $textStatusWarningOnColor;
+
+    &:hover {
+        color: $textStatusWarningOnColorHover;
+    }
+
+    &:active {
+        color: $textStatusWarningOnColorPressed;
+    }
+
+    &:disabled {
+        color: $textStatusWarningOnColorDisabled;
+    }
+}
